@@ -1,9 +1,23 @@
-export default function Home() {
+import Button from "@components/Button";
+import Link from "next/link";
+
+
+
+export default function Page() {
     return (
-        <div className="flex items-center justify-center min-h-screen bg-white">
-            <h1 className="text-4xl font-bold text-gray-900">
-                Welcome to TestSmith
-            </h1>
+        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] bg-white">
+            <div className="text-center space-y-8">
+                <div>
+                    <p className="text-xl text-gray-600 mb-2">Welcome to</p>
+                    <h1 className="text-6xl font-bold text-gray-900">
+                        TestSmith🔨
+                    </h1>
+                </div>
+
+                <Link href="/generate">
+                    <Button>Get Started</Button>
+                </Link>
+            </div>
         </div>
     );
 }
