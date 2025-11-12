@@ -17,10 +17,10 @@ export default function Page() {
     const router = useRouter();
 
     const [loading, setLoading] = useState<boolean>(false);
-    const [files, setFiles] = useState<UploadedFile[]>([]);
-    const [numQuestions, setNumQuestions] = useState(10);
-    const [timeLimit, setTimeLimit] = useState<number>(1);
-    const [questionTypes, setQuestionTypes] = useState({
+    const [files, setFiles] = useState<UploadedFile[]>([]); // local list of selected files (no upload to server)
+    const [numQuestions, setNumQuestions] = useState(10); // number of questions to generate
+    const [timeLimit, setTimeLimit] = useState<number>(1); // time limit in hours?
+    const [questionTypes, setQuestionTypes] = useState({ // multi-select state
         multipleChoice: false,
         freeResponse: false,
         trueFalse: false,

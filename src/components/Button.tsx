@@ -5,13 +5,24 @@ import { ReactNode } from "react";
 interface ButtonProps {
     children: ReactNode;
     onClick?: () => void;
+    /** Optional button type (button, submit, reset) */
+    type?: "button" | "submit" | "reset";
+    /** Disable the button */
+    disabled?: boolean;
+    /** Additional classes to apply */
+    className?: string;
 }
 
-export default function Button({ children, onClick }: ButtonProps) {
+export default function Button({ children, onClick, type = "button", disabled = false, className = "" }: ButtonProps) {
     return (
         <button
-            onClick={onClick} 
-            className="px-8 py-3 text-xl text-gray-700 bg-gray-200 rounded hover:bg-gray-300 transition-colors cursor-pointer"
+            type={type}
+            disabled={disabled}
+            onClick={onClick}
+            className={
+                `px-8 py-3 text-xl text-gray-700 bg-gray-200 rounded transition-colors ${disabled ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-300 cursor-pointer"} ` +
+                className
+            }
         >
             {children}
         </button>
