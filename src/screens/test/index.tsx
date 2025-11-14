@@ -36,7 +36,7 @@ export default function TestPage() {
                 const data = await res.json();
                 setTest(data.test);
                 if (data.test.timeLimit) {
-                    setTimeRemaining(10);
+                    setTimeRemaining(data.test.timeLimit);
                 }
             } else {
                 // No error handling for simulated data.
