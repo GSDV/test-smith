@@ -6,6 +6,8 @@ import {
     useState
 } from "react"
 
+import Link from "next/link";
+
 import { Pause, Play } from "lucide-react";
 
 import CheckIfLoading from "@components/CheckIfLoading";
@@ -36,6 +38,7 @@ export default function TestPage() {
             if (res.ok) {
                 const data = await res.json();
                 setTest(data.test);
+
                 if (data.test.timeLimit) {
                     setTimeRemaining(data.test.timeLimit);
                 }
@@ -60,9 +63,19 @@ export default function TestPage() {
             ...prev,
             [questionIndex]: answer
         }));
-    }, [setUserAnswers]);
+        console.log(JSON.stringify(userAnswers));
+    }, [setUserAnswers, userAnswers]);
 
     const handleSubmit = async () => {
+        // Check if all questions answered
+        const keySet = new Set(Object.keys(userAnswers)); // check if thisng;sg
+        
+        if (keySet.size !== test?.questions.length) { // TODO: make thi not just an alert but use error modal
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        
         console.log("Submitting answers:", userAnswers);
         setIsPaused(true);
 
@@ -75,6 +88,7 @@ export default function TestPage() {
 
     const handleContinue = () => {
         // move to more ai reviews/results
+        
     };
 
 
@@ -163,12 +177,14 @@ export default function TestPage() {
                                         Submit
                                     </button>
                                 :
-                                    <button
-                                        onClick={handleContinue}
-                                        className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-gray-900 font-semibold px-16 py-4 rounded text-lg transition-colors"
-                                    >
-                                        Continue
-                                    </button>
+                                    <Link href="/overview">
+                                        <button
+                                            onClick={handleContinue}
+                                            className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-gray-900 font-semibold px-16 py-4 rounded text-lg transition-colors"
+                                        >
+                                            Continue
+                                        </button>
+                                    </Link>
                                 }
                             </div>
                         </div>
