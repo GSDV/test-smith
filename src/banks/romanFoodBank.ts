@@ -1,6 +1,8 @@
+import { TestBank } from "../util/test/types";
 
-export const romanFoodBank = {
-    testTitle: "Roman Food Bank",
+
+export const romanFoodBank: TestBank = {
+    topic: "Roman Food Bank",
     multipleChoice: [
         {
             type: "multiple-choice",

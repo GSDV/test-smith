@@ -1,5 +1,3 @@
-import { romanBank } from "@/src/banks/knownFiles/roman";
-
 import {
     FreeResponseQuestion,
     MultipleChoiceQuestion,
@@ -10,12 +8,21 @@ import {
     TrueFalseQuestion
 } from "../types";
 
+import { romanFoodBank } from "@/src/banks/romanFoodBank";
+import { romanCultureBank } from "@/src/banks/romanCultureBank";
+import { romanDeclineBank } from "@/src/banks/romanDeclineBank";
+import { romanPoliticsBank } from "@/src/banks/romanPoliticsBank";
+import { designPrinciplesBank } from "@/src/banks/designPrinciplesBank";
+import { graphicDesignStudentBank } from "@/src/banks/graphicDesignStudentBank";
+import { typographyStudentBank } from "@/src/banks/typographyStudentBank";
+import { typographyUIBank } from "@/src/banks/typographyUIBank";
+
 
 
 export type KnownFileQuestions = {
     freeResponse: FreeResponseQuestion[];
     multipleChoice: MultipleChoiceQuestion[];
-    selectAll: SelectAllQuestion[];
+    selection: SelectAllQuestion[];
     sentenceCompletion: SentenceCompletionQuestion[];
     trueFalse: TrueFalseQuestion[];
 }
@@ -23,9 +30,15 @@ export type KnownFileQuestions = {
 
 
 const KNOWN_FILES_TO_QUESTIONS: Record<string, KnownFileQuestions> = {
-    "Roman Lecture 5.ppt": romanBank,
-    // "Action-Words.pdf": // ...
-    // ...
+
+    "15_roman-food-hannah.pptx" : romanFoodBank,
+    "1109-313-Roman_Culture.pdf" : romanCultureBank,
+    "Dr-Anitha-V-Roman-Political-System.pdf" : romanPoliticsBank,
+    "gena2112_decline_and_fall_of_roman_empire.ppt" : romanDeclineBank,
+    "8 Basic design principles to help you make awesome graphics.pdf" : designPrinciplesBank,
+    "Graphic-design-student.pptx" : graphicDesignStudentBank,
+    "How To Use Typography In UI Design_ A Beginner's Guide.pdf" : typographyUIBank,
+    "Typography-student.pptx" : typographyStudentBank
 }
 
 
@@ -85,7 +98,7 @@ export const getQuestionsFromFiles = (config: TestConfig, files: string[]): Test
             fileQuestionPool.push(...fileQuestions.sentenceCompletion);
         }
         if (config.questionTypes.selection) {
-            fileQuestionPool.push(...fileQuestions.selectAll);
+            fileQuestionPool.push(...fileQuestions.selection);
         }
 
         let numQuestionsFromThisFile = questionsPerRecognizedFile;

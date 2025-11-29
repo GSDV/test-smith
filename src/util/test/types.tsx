@@ -1,8 +1,8 @@
 export type FreeResponseQuestion = {
     type: "free-response";
     question: string;
-    correct: boolean; // Hardcoding if the user got this question correct, since we cannot dynamically check without AI.
-    aiResponse: string; // Again, hardcoded.
+    aiResponse: string; // Hardcoded.
+    correctTerms: string[];
 };
 
 export type MultipleChoiceQuestion = {
@@ -57,7 +57,7 @@ export type TestBank = {
     topic: string;
     freeResponse: FreeResponseQuestion[];
     multipleChoice: MultipleChoiceQuestion[];
-    selectAll: SelectAllQuestion[];
-    sentenceCompletion: SentenceCompletionQuestion [];
+    selection: SelectAllQuestion[];
+    sentenceCompletion: SentenceCompletionQuestion[];
     trueFalse: TrueFalseQuestion[];
 }

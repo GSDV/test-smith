@@ -1,4 +1,7 @@
-export const romanCultureBank = {
+import { TestBank } from "../util/test/types";
+
+export const romanCultureBank: TestBank = {
+    topic: 'Roman Culture',
     multipleChoice: [
         {
             type: "multiple-choice",

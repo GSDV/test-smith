@@ -1,4 +1,7 @@
-export const romanPoliticsBank = {
+import { TestBank } from "../util/test/types";
+
+export const romanPoliticsBank: TestBank = {
+    topic: 'Roman Politics',
     multipleChoice: [
         {
             type: "multiple-choice",

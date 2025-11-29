@@ -1,4 +1,9 @@
-export const typographyUIBank = {
+import { TestBank } from "../util/test/types";
+
+
+
+export const typographyUIBank: TestBank = {
+    topic: "Typography UI",
   multipleChoice: [
     {
       type: "multiple-choice",

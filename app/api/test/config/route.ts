@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Test, Question } from "@util/test/types";
 
-import { romanBank } from "@/src/banks/romanBank";
-
 import { getQuestionsFromFiles, getRecognizedFiles } from "@util/test/config/parse";
 
 import { romanFoodBank } from "@/src/banks/romanFoodBank";
@@ -59,17 +57,10 @@ export async function POST(req: NextRequest) {
         console.log("All filed uploaded are unrecognized. Choosing predetermined Roman history test for now.");
 
         const generatedTest: Test = {
-            title: romanBank.testTitle,
+            title: 'Generated Test.',
             timeLimit: timeLimit*60,
             questions: []
         };
-
-
-        // const selectedQuestionTypes = Object.keys(questionTypes).filter((key) => (questionTypes as any)[key] === true);
-        // for (let i = 0; i < numQuestions; i++) {
-        //     const thisQT = selectedQuestionTypes[Math.floor(Math.random() * selectedQuestionTypes.length)] as keyof typeof romanBank; 
-        //     historyTest.questions.push(romanBank[thisQT][Math.floor(Math.random() * romanBank[thisQT].length)] as Question);
-        // }
 
         const selectedBanks = files.map((file: File) => fileToBank[file.name]); // Array of banks to be selected from
         const selectedQuestionTypes = Object.keys(questionTypes) // Array of question type strings to be selected from

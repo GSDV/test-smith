@@ -1,4 +1,9 @@
-export const designPrinciplesBank = {
+import { TestBank } from "../util/test/types";
+
+
+
+export const designPrinciplesBank: TestBank = {
+    topic: "Design Principles",
   multipleChoice: [
     {
       type: "multiple-choice",
