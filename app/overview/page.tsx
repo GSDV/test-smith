@@ -16,6 +16,12 @@ const Page = () => {
     const setTest = useTestStore((state) => state.setTest);
     const router = useRouter();
 
+    // const dimTable = { // width and height of each image vector varies between the circles // ! TODO: use this to make overview dynamic
+    //     90: 200,
+    //     25: 190,
+    //     60: 170, 
+    // };
+
     const onGenerateTest = async () => {
         try {
             setLoading(true);

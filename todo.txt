@@ -1,1 +1,2 @@
-Make overview dynamic.
+Make overview dynamic. (see mock_data/overview_summaries.ts and stores/overviewStore.ts)
+    Need to collect relevant correctness data from quiz submission.
