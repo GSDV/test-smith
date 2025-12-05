@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { test1 } from "@util/test/test1";
 import { sleep } from "@util/sleep";
 
 
@@ -19,5 +18,5 @@ export async function GET(req: NextRequest) {
 
     console.log("Test generated!");
 
-    return NextResponse.json({ msg: "Success.", test: test1 }, { status: 200 });
+    return NextResponse.json({ msg: "Success.", test: {} }, { status: 200 }); // ! useless route?
 }
